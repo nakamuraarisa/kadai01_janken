@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Webフォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+
+    <title>今日のコーデ #OOTD</title>
+</head>
+
+<body>
+<div class="wrap">
+
+    <header class="header">
+    </header>
+
+    <main class="main">
+        <p class="choice_text">今日のコーデ #OOTD</p>
+        <p class="choice_text2">
+            今日は何を着ようかな
+            <br>
+            たくさん服は持っているけれど
+            <br>
+            コーディネートを決めるのはちょっとめんどう
+            <br>
+            そんな日は   #OOTD   に選んでもらおう
+        </p>
+        <p class="choice_text3">
+            アイテムをひとつ選んでクリックしてね
+        </p>
+        
+        <div class="choice">
+            <a href="#kekka_text"><div id="t1"><img src="img/t1.jpg" alt="トップス1" class="photo"></div></a>
+            <a href="#kekka_text"><div id="b1"><img src="img/b1.jpg" alt="ボトムス1" class="photo"></div></a>
+            <a href="#kekka_text"><div id="a1"><img src="img/a1.jpg" alt="アイテム1" class="photo"></div></a>
+            <a href="#kekka_text"><div id="t2"><img src="img/t2.jpg" alt="トップス2" class="photo"></div></a>
+            <a href="#kekka_text"><div id="b2"><img src="img/b2.jpg" alt="ボトムス2" class="photo"></div></a>
+            <a href="#kekka_text"><div id="a2"><img src="img/a2.jpg" alt="アイテム2" class="photo"></div></a>
+            <a href="#kekka_text"><div id="t3"><img src="img/t3.jpg" alt="トップス3" class="photo"></div></a>
+            <a href="#kekka_text"><div id="b3"><img src="img/b3.jpg" alt="ボトムス3" class="photo"></div></a>
+            <a href="#kekka_text"><div id="a3"><img src="img/a3.jpg" alt="アイテム3" class="photo"></div></a>
+            <a href="#kekka_text"><div id="t4"><img src="img/t4.jpg" alt="トップス4" class="photo"></div></a>
+            <a href="#kekka_text"><div id="b4"><img src="img/b4.jpg" alt="ボトムス4" class="photo"></div></a>
+            <a href="#kekka_text"><div id="a4"><img src="img/a4.jpg" alt="アイテム4" class="photo"></div></a>
+            <a href="#kekka_text"><div id="t5"><img src="img/t5.jpg" alt="トップス5" class="photo"></div></a>
+            <a href="#kekka_text"><div id="b5"><img src="img/b5.jpg" alt="ボトムス5" class="photo"></div></a>
+            <a href="#kekka_text"><div id="a5"><img src="img/a5.jpg" alt="アイテム5" class="photo"></div></a>
+        </div>
+        
+
+        <p id="kekka_text">今日のコーディネート</p>
+        <p class="kekka_text2">
+            こんなスタイルはどう？
+            <br>
+            楽しい一日を！
+        </p>
+        <div class="kekka">
+            <div id="kekka1"><img src="img/hatena.png" alt="？" class="photo"></div>
+            <div id="kekka2"><img src="img/hatena.png" alt="？" class="photo"></div>
+            <div id="kekka3"><img src="img/hatena.png" alt="？" class="photo"></div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+    </footer>
+
+</div>
+    
+<script>
+    // トップスを押した場合
+    $("#t1,#t2,#t3,#t4,#t5").on("click",function(){
+        // 1.乱数(1-5)
+        const b = Math.ceil(Math.random()*5);
+        const a = Math.ceil(Math.random()*5);
+        // 2.if分岐処理
+        let viewb = "";
+        let viewa = "";
+        if( b == 1 ){
+            viewb = '<img src="img/b1.jpg">';
+        }
+        if( b == 2 ){
+            viewb = '<img src="img/b2.jpg">';
+        }
+        if( b == 3 ){
+            viewb = '<img src="img/b3.jpg">';
+        }
+        if( b == 4 ){
+            viewb = '<img src="img/b4.jpg">';
+        }
+        if( b == 5 ){
+            viewb = '<img src="img/b5.jpg">';
+        }
+        if( a == 1 ){
+        viewa = '<img src="img/a1.jpg">';
+        }
+        if( a == 2 ){
+            viewa = '<img src="img/a2.jpg">';
+        }
+        if( a == 3 ){
+            viewa = '<img src="img/a3.jpg">';
+        }
+        if( a == 4 ){
+            viewa = '<img src="img/a4.jpg">';
+        }
+        if( a == 5 ){
+            viewa = '<img src="img/a5.jpg">';
+        }
+
+        // 3.クリックした画像を表示（トップス）
+        const viewt = $(this).children().attr("src")
+
+        // 4.表示
+        $("#kekka1").html(`<img src="${viewt}">`);
+        $("#kekka2").html(viewb);
+        $("#kekka3").html(viewa);
+    
+    });
+
+    // ボトムスを押した場合
+    $("#b1,#b2,#b3,#b4,#b5").on("click",function(){
+        // 1.乱数(1-5)
+        const t = Math.ceil(Math.random()*5);
+        const a = Math.ceil(Math.random()*5);
+        // 2.if分岐処理
+        let viewt = "";
+        let viewa = "";
+        if( t == 1 ){
+            viewt = '<img src="img/t1.jpg">';
+        }
+        if( t == 2 ){
+            viewt = '<img src="img/t2.jpg">';
+        }
+        if( t == 3 ){
+            viewt = '<img src="img/t3.jpg">';
+        }
+        if( t == 4 ){
+            viewt = '<img src="img/t4.jpg">';
+        }
+        if( t == 5 ){
+            viewt = '<img src="img/t5.jpg">';
+        }
+        if( a == 1 ){
+            viewa = '<img src="img/a1.jpg">';
+        }
+        if( a == 2 ){
+            viewa = '<img src="img/a2.jpg">';
+        }
+        if( a == 3 ){
+            viewa = '<img src="img/a3.jpg">';
+        }
+        if( a == 4 ){
+            viewa = '<img src="img/a4.jpg">';
+        }
+        if( a == 5 ){
+            viewa = '<img src="img/a5.jpg">';
+        }
+
+        // 3.クリックした画像を表示（ボトムス）
+        const viewb = $(this).children().attr("src")
+
+        // 4.表示
+        $("#kekka1").html(viewt);
+        $("#kekka2").html(`<img src="${viewb}">`);
+        $("#kekka3").html(viewa);
+    
+    });
+
+    // 小物を押した場合
+    $("#a1,#a2,#a3,#a4,#a5").on("click",function(){
+        // 1.乱数(1-5)
+        const t = Math.ceil(Math.random()*5);
+        const b = Math.ceil(Math.random()*5);
+        // 2.if分岐処理
+        let viewt = "";
+        let viewb = "";
+        if( t == 1 ){
+            viewt = '<img src="img/t1.jpg">';
+        }
+        if( t == 2 ){
+            viewt = '<img src="img/t2.jpg">';
+        }
+        if( t == 3 ){
+            viewt = '<img src="img/t3.jpg">';
+        }
+        if( t == 4 ){
+            viewt = '<img src="img/t4.jpg">';
+        }
+        if( t == 5 ){
+            viewt = '<img src="img/t5.jpg">';
+        }
+        if( b == 1 ){
+            viewb = '<img src="img/b1.jpg">';
+        }
+        if( b == 2 ){
+            viewb = '<img src="img/b2.jpg">';
+        }
+        if( b == 3 ){
+            viewb = '<img src="img/b3.jpg">';
+        }
+        if( b == 4 ){
+            viewb = '<img src="img/b4.jpg">';
+        }
+        if( b == 5 ){
+            viewb = '<img src="img/b5.jpg">';
+        }
+
+        // 3.クリックした画像を表示（小物）
+        const viewa = $(this).children().attr("src")
+
+        // 4.表示
+        $("#kekka1").html(viewt);
+        $("#kekka2").html(viewb);
+        $("#kekka3").html(`<img src="${viewa}">`);
+    
+    });
+
+</script>
+
+</body>
+</html>
